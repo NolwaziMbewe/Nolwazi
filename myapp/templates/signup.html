@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "home.html" %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <div class="class container col-7  shadow-sm p-3 bg-light">
+        <form  action="{% url 'sign' %}" method="post">
+            {% csrf_token %}
+               <h4>Admin sign</h4>
+               <div class="form-group my-3"></div>
+                  {{form.as_p}}
+                  <button style="width: 120px;" class="btn btn-primary btn-sm my-2">Submit</button>
+                  <div class="my-3">
+                    <p><strong class="text-muted">Do you have an Account ? </strong><a href="{% url 'home' %}">  login</a></p>
+                    <div style="text-align: right;"><label class="fs-6 text-muted">&copy;zm.com</label></div>
+                  </div>
+                 
+                  
+                  
+               </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

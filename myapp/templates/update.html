@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'home.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %} 
+    <div class="class row justify-content-center">
+        <div class="class col-6">
+            <p style="font-weight: 900;font-size: larger;">UPDATE USER</p>
+            <form action="{% url 'updateUser' user.id %}" method="post">
+                {% csrf_token %}
+                <div class="my-3">
+                    {{form.as_p}}
+                    <button id="updatebtn" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+ 
+
+    {% endblock %}
+</body>
+</html>

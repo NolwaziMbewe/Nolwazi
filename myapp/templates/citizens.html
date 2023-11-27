@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'home.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h3>Registered Citizens</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="bg-secondary text-light">
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>PLACE OF BIRTH</th>
+                <th>FARTHER'S PLACE OF BIRTH</th>
+                <th>CHIEF</th>
+                <th>POSTAL ADDRESS</th>
+                <th>DATE OF BIRTH</th>
+                <th>GENDER</th>
+                <th>VILLAGE</th>
+                <th>PROVINCE</th>
+                <th>NRC</th>
+                <th>COUNTRY</th>
+                <th>FATHER'S DATE OF BIRTH</th>
+                <th>DISTRICT</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{i.fname}}</td>
+                <td>{{lname}}</td>
+                <td>{{i.pob}}</td>
+                <td>{{i.fpob}}</td>
+                <td>{{i.chief}}</td>
+                <td>{{i.postal}}</td>
+                <td>{{dob}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.village}}</td>
+                <td>{{i.province}}</td>
+                <td>{{i.nrc}}</td>
+                <td>{{i.cob}}</td>
+                <td>{{i.fdob}}</td>
+                <td>{{i.district}}</td>
+                <td>
+                    <span style="margin-bottom: 2px;">
+                        <a href=""><button class="btn btn-primary btn-sm" style="width: 60px;">update</button></a>
+                        <a href=""><button class="btn btn-danger btn" style="width: 60px;">Del</button></a>
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+       
+    {% endblock %}
+</body>
+</html>

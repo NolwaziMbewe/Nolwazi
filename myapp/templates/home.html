@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <title>Document</title>
+</head>
+<style>
+  #bk{
+    background-image: url("{% static 'bg.jpg' %}");
+    background-size: cover;
+    padding:3%;
+  }
+  .btn{
+    width: 140px;
+  }
+  .form-control{
+    /* height: 40px; */
+    
+  }
+  table{
+    width: 150px;
+    margin: 3px;
+  }
+  th{
+    vertical-align: top;
+  }
+</style>
+<body>
+    <div class="bg-success b-muted mb-3 py-3 text-center text-light fs-3 fw-3"><h6>NRC-TSZ</h6><h6>National Registration Card Tracking System in Zambia</h6></div>
+    <div style="text-align: center;"><img width="100px" height="100px" src="{% static 'log.jpg' %}" alt=""></div>
+    <div class="my-3 class text-muted text-center"><h4 style="font-family: 'Times New Roman', Times, serif;">The Department Of National Registrations</h4></div>
+    <hr class="shadow-lg"> 
+    <section id="bk">
+        {% block content %}
+        <div class="class container col-7 shadow-lg p-3 bg-light">
+            <form  action="{% url 'home' %}" method="post">
+                {% csrf_token %}
+                   <h4>Login</h4>
+                   <div class="form-group my-3"></div>
+                      {{form.as_p}}
+                      <button style="width: 120px;" class="btn btn-primary btn-sm my-2">Submit</button>
+                      <div class="my-3">
+                     <p><strong class="text-muted">Dont have an Account ? </strong><a href="{% url 'sign' %}">sigup</a></p>
+                        <div style="text-align: right;"><label class="fs-6 text-muted">&copy;zm.com</label></div>
+                      </div>    
+                   </div>
+            </form>
+        </div>
+        {% endblock content %}
+    </section>
+    <script>
+      message = 'msg'
+      console.log(message)
+    </script>  
+</body>
+</html>

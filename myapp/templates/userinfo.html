@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "home.html" %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Active users</h1>
+    <div class="class container">
+        <table class="table table-striped my-5">
+            <thead class="bg-secondary text-light">
+                <tr>
+                    <td>USERID</td>
+                    <td>USERNAME</td>
+                    <td>PASSWORD</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in user %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.username}}</td>
+                    <td>{{i.password}}</td>
+                    <td>
+                        <span>
+                            <a href="{% url 'removeUser' i.id %}" ><button class="btn btn-danger">Delete</button></a>
+                            <a href="{% url 'updateUser' i.id %}"><button class="btn btn-primary">Update</button></a>
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'home.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h3 style="text-align: center;">User Pannel</h3>
+    <div class="class row justify-content-center border-top">
+        <div class="class col-6 me-5 mt-3" >
+            <form action="{% url 'userPanel' %} " method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-secondary">Enter</button>
+            </form>
+            <a href="{% url 'home' %}"><p>log out</p></a>
+            
+        </div>
+        <div class="class col-4 ms-5  border-start border-secondary border-1">
+            <div class="class conainer mt-3">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="bg-success text-light">
+                            <th>NAME</th>
+                            <th>GENDER</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in data %}
+                        <tr>
+                            <td>{{i.fname}}</td>
+                            <td>{{i.gender}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

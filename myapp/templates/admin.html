@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    {% extends "home.html" %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h3>Admin Dashbord</h3>
+    <span>
+        <a href="{% url 'users' %}"><button class="btn btn-primary fw-5">View Users</button></a>
+        <a href="{% url 'citz' %}"><button class="btn btn-dark fw-5">Citizens</button></a> 
+        <a href="{% url 'sign' %}"><button class="btn btn-dark fw-5">Add user</button></a>
+        
+    </span>
+        
+    {% endblock %}
+</head>
+<body>
+    
+</body>
+</html>
